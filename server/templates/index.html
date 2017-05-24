@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{% block page_title %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{% endblock %}">
+  <meta name="author" content="{% block meta_author %}{% endblock %}">
+  <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
+  {% if user.is_authenticated %}
+    <link rel="stylesheet" href="{% static 'bundle.css' %}">
+  {% endif %}
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div class="main">
+            <div class="content">
+                <div id="audio-player"></div>
+                <ul class="books">
+                    {% for book in books %}
+                        <li>
+                            <h3 class="book-name">{{ book.name }}</h3>
+                            <ul>
+                                {% for book_part in book.parts.all %}
+                                    <li class="book-part-wrapper">
+                                        {% if book_part.is_wait %}
+                                            <a href="{{ book_part.file.url }}" data-position="{{ book_part.last_position }}" data-id="{{ book_part.id }}" class="book-part">
+                                                <span class="index">{{ forloop.counter }}.</span>
+                                                {{ book_part.file.name }}
+                                                <span class="last-position">{{ book_part.last_position }}</span>
+                                            </a>
+                                        {% else %}
+                                            <span>
+                                                <span class="index">{{ forloop.counter }}.</span>
+                                                {{ book_part.file.name }}
+                                            </span>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <script src="{% static 'bundle.js' %}"></script>
+    {% endif %}
+</body>
+</html>

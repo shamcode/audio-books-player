@@ -1,0 +1,61 @@
+@import 'audio-player.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    .content {
+        width: 80%;
+        padding: 15px 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #d8d8d8;
+        box-shadow: 6px 6px 7px rgba(0,0,0,.2);
+        border-radius: 2px;
+        ul {
+            list-style-type: none;
+        }
+
+        .books {
+            & > li > ul > li {
+                margin: 10px;
+            }
+            .book-name {
+                color: #0197ab;
+                font-family: "DejaVu Sans Condensed", monospace;
+                text-align: center;
+                font-size: 24px;
+            }
+            .book-part-wrapper {
+                font-family: "DejaVu Sans Condensed", monospace;
+
+                text-decoration: none;
+                .book-part {
+                    color: #019fb3;
+                    &:hover {
+                        text-decoration: underline;
+                        color: #01b7cb;
+                    }
+                }
+                .index {
+                    color: #01879b;
+                    padding-right: 30px;
+                }
+                .last-position {
+                    color: #01879b;
+                    font-size: 12px;
+                    padding-left: 30px;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+

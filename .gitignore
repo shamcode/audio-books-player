@@ -1,0 +1,52 @@
+# Python bytecode:
+*.py[co]
+
+# Packaging files:
+*.egg*
+
+# SQLite3 database files:
+*.db
+
+# Logs:
+*.log
+
+# Eclipse
+.project
+.pydevproject
+.settings
+
+# Linux Editors
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+*.swp
+*.swo
+
+# Mac
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Node packages
+/client/node_modules
+
+# Python virtual environment
+/venv
+
+# Media directory
+/media
+/assets/
+
+# IDE
+.idea
+
+# settings
+/server/server/local.py
