@@ -40,7 +40,7 @@ export default function() {
                 audioService.markAsListen( mapping.get( prev ).id );
             }
             const bookPart = mapping.get( player.url );
-            player.isLoaded = true;
+            bookPart.isLoaded = true;
             player.audio.audioCurrent.currentTime = bookPart.currentTime;
             updatePosition();
         },
